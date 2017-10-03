@@ -29,12 +29,14 @@ Route::get('logout', ['as' => 'getLogout', 'uses' => 'LoginController@getLogout'
 
 Route::group(['middleware' => ['auth']], function () {
     Route::group(["prefix" => 'admin', "namespace" => "admin"], function(){
-		Route::get('/', function(){
-			return view('admin.module.dashboard.main');
-		});
+  		Route::get('/', function(){
+  			return view('admin.module.dashboard.main');
+  		});
 
-		Route::group(["prefix" => "category"], function(){
-			Route::get('add', ['as' => 'addCategory', 'uses' => 'CategoryController@getAdd']);
-		});
+  		Route::group(["prefix" => "category"], function(){
+  			Route::get('add', ['as' => 'getCateAdd', 'uses' => 'CategoryController@getCateAdd']);
+        Route::post('add', ['as' => 'postCateAdd', 'uses' => 'CategoryController@postCateAdd']);
+        Route::get('list', ['as' => 'getCateList', 'uses' => 'CategoryController@getCateList']);
+  		});
     });
 });

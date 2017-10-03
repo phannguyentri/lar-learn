@@ -25,11 +25,14 @@
 		</table>
 	</div>
 	<div id="main">
+		@include('admin.blocks.errors')
 		@yield('content')
 	</div>
     <div id="bottom">
-        Copyright © 2016 by QuocTuan.Info & QHOnline.Edu.Vn 
+        Copyright © 2016 by QuocTuan.Info & QHOnline.Edu.Vn
     </div>
 </div>
+
+<script src="{!! asset('public/t95_admin/templates/js/jquery-3.2.1.min.js') !!}"></script>
 </body>
 </html>
