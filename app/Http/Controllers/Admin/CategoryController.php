@@ -34,6 +34,9 @@ class CategoryController extends Controller
 		if (Session::has('status')) {
 			echo Session::get('status');
 		}
+		$cates = Cate::select('id', 'name', 'parent_id')->get()->toArray();
+		return view('admin.module.category.list', ['dataCates' => $cates]);
 	}
+
 
 }
