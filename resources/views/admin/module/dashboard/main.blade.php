@@ -16,7 +16,7 @@
 	</tr>
 	<tr>
 		<td class="function_item cate_add"><a href="{!! route('getCateAdd') !!}">Thêm danh mục</a></td>
-		<td class="function_item cate_list"><a href="">Quản lý danh mục</a></td>
+		<td class="function_item cate_list"><a href="{!! route('getCateList') !!}">Quản lý danh mục</a></td>
 	</tr>
 	<tr>
 		<td class="function_item news_add"><a href="">Thêm tin</a></td>

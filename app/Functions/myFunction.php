@@ -33,8 +33,10 @@
         }
         echo    '<td class="list_td aligncenter">
                     <a href=""><img src="../../public/t95_admin/templates/images/edit.png" /></a>&nbsp;&nbsp;&nbsp;
-                    <a href=""><img src="../../public/t95_admin/templates/images/delete.png" /></a>
-                </td>
+                    <a href="delete/'.$value['id'].'" onclick="return func_confirm(\'Are you sure?\')">
+                      <img src="../../public/t95_admin/templates/images/delete.png" />
+                    </a>
+                 </td>
               </tr>';
         listCate($data, $value['id'], $prefix."--");
       }

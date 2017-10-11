@@ -26,7 +26,7 @@ class CategoryController extends Controller
 		$cate->parent_id	= $request->sltCate;
 		// $cate->created_at = new DateTime();
 		$cate->save();
-		$request->session()->flash('status', 'Task was successful!');
+		$request->session()->flash('status', 'Add category successfully!');
 		return redirect()->route('getCateList');
 	}
 
@@ -38,5 +38,19 @@ class CategoryController extends Controller
 		return view('admin.module.category.list', ['dataCates' => $cates]);
 	}
 
+	public function getCateDel($id){
+		$parent = Cate::where('parent_id', $id)->count();
+		if ($parent == 0) {
+			$cate = Cate::find($id);
+			$cate->delete($id);
+			return redirect()->route('getCateList')->with(['flash_level' => 'result_msg',
+			 'flash_message' => 'Delete category successfully!']);
+		}else{
+			echo '<script type="text/javascript" >';
+			echo  'alert("Delete category failed");';
+			echo  'window.location = "'.route('getCateList').'";';
+			echo '</script>';
+		}
+	}
 
 }

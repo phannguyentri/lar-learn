@@ -1,11 +1,15 @@
 @extends('admin.master')
 @section('title',"Danh Sách")
 @section('content')
+
 @php
-  echo "<pre>";
-  print_r($dataCates);
-  echo "</pre>";
+  if (Session::has('flash_message')) {
+    echo '<div class="alert alert-success">';
+    echo   '<label>'.Session::get('flash_message').'</label>';
+    echo '</div>';
+  }
 @endphp
+
 <table class="list_table">
     <tr class="list_heading">
         <td>Danh Mục</td>
@@ -16,3 +20,12 @@
     @endphp
 </table>
 @endsection
+
+<script type="text/javascript">
+  function func_confirm($message){
+    if (!confirm($message)) {
+      return false;
+    }
+
+  }
+</script>
